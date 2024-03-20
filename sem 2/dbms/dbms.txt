@@ -1,0 +1,28 @@
+-- 
+-- Roll No: 18
+-- Name: Irfan kader vk
+-- Program: Assignment- I
+-- 
+
+
+--
+-- Table structure for table <categories>
+—-
+ 
+create table categories(category_id int primary key,name varchar(50) not null,parent_category int,constraint fkey_parent_category foreign key(parent_category) references categories(category_id)); 
+
+—-
+-- Table structure for table <products>
+—-
+ 
+create table products(product_id int primary key,name varchar(50) not null unique,price decimal(6,2) default 100.00,category_id int,foreign key(category_id) references categories(category_id),quantity int); -- Dumping data for table <table_name>
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file

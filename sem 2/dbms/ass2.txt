@@ -1,0 +1,77 @@
+-- 
+-- Roll No: 18
+-- Name: Irfan kader vk
+-- Program: Assignment-II
+-- 
+
+
+--
+-- Table structure for table <categories>
+—-
+ 
+create table categories(category_id int primary key,name varchar(50) not null,parent_category int,constraint fkey_parent_category foreign key(parent_category) references categories(category_id)); 
+
+—-
+-- Table structure for table <products>
+—-
+ 
+create table products(product_id int primary key,name varchar(50) not null unique,price decimal(6,2) default 100.00,category_id int,foreign key(category_id) references categories(category_id),quantity int); 
+
+alter table products add constraint chk_pricerange check (price >=0 and price <=3000);
+
+
+--
+-- Dumping data for table <categories>
+--
+
+insert into categories values(1,"Phones",NULL),(2,"Laptops",NULL),(3,"Consoles",NULL),(4,"iPhone",1),(5,"Windows",2),(6,"Xbox",3);
+
+--
+-- Dumping data for table <products>
+--
+
+insert into products values(1,"iPhone 12",999.99,4,10),(2,"MacBook Pro",1999.99,2,5),(3,"Dell XPS 15",1599.99,5,8),(4,"Sony PlayStation 5",499.99,3,20),(5,"Nintendo",149.99,3,12);
+
+insert into products(product_id,name,price,category_id) values(6,"Xbox Series X",499.99,6);
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
+
+--Q1. List all products and its name.
+select product_id,name from products;
+
+
+--Q2. List all categories.
+select * from categories;
+
+
+--Q3. List all categories for those do not have a parent category.
+select * from categories where parent_category is NULL;
+
+
+--Q4.List all products where the name starts with the letter ‘M’ (include product_id, product name).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
