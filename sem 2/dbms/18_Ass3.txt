@@ -1,0 +1,73 @@
+-- 
+-- Roll No: 18
+-- Name: Irfan kader vk
+-- Program: Assignment-III
+-- 
+
+
+--
+-- Table structure for table <publishers>
+—-
+ 
+create table publishers(publisherid int auto_increment primary key,name varchar(50) unique not null,address varchar(100));
+
+—-
+-- Table structure for table <books>
+—-
+ 
+create table books(accno int auto_increment primary key,title varchar(100) unique not null,author varchar(50) not null,price float(4,2),type enum('lending','reference'),availability enum('yes','no'),publisherid  int); 
+
+—-
+-- Table structure for table <members>
+—-
+
+
+create table members(memberid int auto_increment primary key,name varchar(50) not null,address varchar(100),type enum('staff','student'));
+
+—-
+-- Table structure for table <issues>
+—-
+
+create table issues(issuesid int auto_increment primary key,memberid int,accno int,issuedate date,duedate date);
+
+
+—-
+-- Table structure for table <returns>
+—-
+
+
+create table returns(returnid int auto_increment primary key,memberid int,constraints returns_fkey_memberid foreign key(memberid)references members(memberid),accno int,constraints returns_fkey_accno foreign key(accno)references books(accno),returndate date,fine int default 0, check constraints returns_CHK_fine check(fine>=0));
+
+
+--
+-- Dumping data for table <publishers>
+--
+
+insert into publishers values(1,'DC Books','Kozhikode');
+insert into publishers values(2,'Manorama','Trivandrum');
+insert into publishers values(3,'Mathrubumi','trissur');
+insert into publishers values(4,'LabourIndia','Malappuram');
+insert into publishers values(5,'daivathinte Charanmar','kannur');
+
+
+
+--
+-- Dumping data for table <books>
+--
+
+insert into books values(001,'Aadu Jeevitham','Benyamin',20.00,'reference','yes',1);
+insert into books values(2,'Winds Of Fire','Abdulkalam',30.00,'reference','No',2);
+insert into books values(3,'Pathummayude Aadu','Basheer',40.00,'lending','Yes',3);
+insert into books values(4,'Orikkal','M.Mohanan',50.00,'lending','No',4);
+insert into books values(5,'ram c/o anandhi','Akhil',60.00,'reference','Yes',5);
+
+
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
+
+

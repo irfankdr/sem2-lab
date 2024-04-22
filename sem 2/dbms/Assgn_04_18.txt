@@ -1,0 +1,72 @@
+-- 
+-- Roll No: 18
+-- Name: Irfan kader vk
+-- Program: Assignment-IV
+-- 
+
+
+--
+-- Table structure for table <>
+—-
+ 
+
+—-
+-- Table structure for table <>
+—-
+ 
+
+
+--
+-- Dumping data for table <>
+--
+
+
+
+--
+-- Dumping data for table <>
+--
+
+
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
+
+
+-- Q1.Retrieve all members with their name and address.
+select name,address from members;
+
+-- Q2.Retrieve all books (include only accno and title) containing a letter ‘o’ anywhere in the title.
+select accno,title from books where title like "%o%";
+
+
+-- Q3.Retrieve books (include all attributes) that are currently available for lending.
+select  * from books where type = 'lending' and availability = 'yes';
+
+-- Q4.Retrieve all books with their title, author, and corresponding publisher name.
+select books.title,books.author,publishers.name from books join publishers on books.publisherid=publishers.publisherid;
+
+-- Q5.Retrieve members who issued books with their name, address, and corresponding book titles in ascending order of title.
+select members.name,members.address,books.title from issues join members on issues.memberid=members.memberid join books on issues.accno=books.accno order by title asc;
+
+-- Q6.Retrieve the name, total number of books (rename it as TotalBooksIssued) issued by each member.
+
+
+-- Q7.Retrieve members (include name, address) who have not issued any books.
+
+
+-- Q8.Retrieve all books with their title, author, and the total number of time (rename it as NumberofIssue) each book has been issued.
+
+
+-- Q9.Retrieve members (include name, TotalBooksIssued) who have issued more than 2 books.
+
+
+-- Q10.Retrieve books (include title, author) that have not been issued yet.
+
+
+
+
+
